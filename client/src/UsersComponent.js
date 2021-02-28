@@ -40,7 +40,7 @@ export default class UsersComponent extends Component {
                     <Button onClick={this.fetchUsersData}>Clear</Button>
                 </Space>
                 <Row>
-                    {this.state.averageAge && <Typography.Title>Average age: {this.state.averageAge}</Typography.Title>}
+                    {this.state.averageAge && <Typography.Title>Average age: {this.state.averageAge.toFixed(2)}</Typography.Title>}
                 </Row>        
             </Col>
             </Row>
@@ -84,18 +84,18 @@ export default class UsersComponent extends Component {
         {
             title: 'Name',
             dataIndex: 'name',
-            key: 'name'
+            key: 'id'
         },
         {
             title: 'Age',
             dataIndex: 'age',
-            key: 'age'
+            key: 'id'
         },
         {
             title: 'Admin',
-            dataIndex: 'isAdmin',
-            key: 'isAdmin',
-            render: isAdmin => isAdmin ? "Yes" : "No"
+            dataIndex: 'isadmin',
+            key: 'id',
+            render: isadmin => isadmin ? "Yes" : "No"
         }
     ]
 }

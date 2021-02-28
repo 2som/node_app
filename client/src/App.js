@@ -16,7 +16,7 @@ class App extends Component {
 
   componentDidMount() {
       axios
-          .get('https://tests-9973d.firebaseio.com/users.json')
+          .get('http://localhost:3000/api/users')
           .then(res => res.data)
           .then(data => this.setState({ usersData: data }))
           .catch(err => this.setState({ error: err }));
