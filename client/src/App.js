@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
+import 'antd/dist/antd.css';
+import axios from 'axios';
+import UsersComponent from './UsersComponent';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+
+  constructor () {
+      super()
+
+      this.state = {
+          usersData: [],
+          error: null
+      }
+  }
+
+  componentDidMount() {
+      axios
+          .get('https://tests-9973d.firebaseio.com/users.json')
+          .then(res => res.data)
+          .then(data => this.setState({ usersData: data }))
+          .catch(err => this.setState({ error: err }));
+  }
+
+  render () {
+      return (
+        <>
+          <UsersComponent usersData={this.state.usersData}/>
+          {this.state.error && <p>Something went wrong</p>}
+        </>
+      )
+  } 
 }
 
 export default App;
