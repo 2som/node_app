@@ -5,7 +5,7 @@ const sequelize = require('./sequelize');
 // const cors = require('cors');
 const path = require('path');
 
-const port = 3000
+const port = process.env.NODE_PORT || 3000
 
 // const  whitelist = ['http://localhost:3001', 'http://localhost:3000']
 // const corsOptions = {
