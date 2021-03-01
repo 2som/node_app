@@ -1,8 +1,8 @@
 const { Sequelize } = require('sequelize');
 
-const sequelize = new Sequelize('node_app', 'postgres', 'password', {
+const sequelize = new Sequelize('node_app', 'mysql_user', 'password', {
     host: 'localhost',
-    dialect: 'postgres',
+    dialect: 'mariadb',
     define: {
       timestamps: false
     },
