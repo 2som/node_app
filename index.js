@@ -10,6 +10,10 @@ app.get('/api/users', async (req, res) => {
   res.send(users);
 })
 
+app.get('/', async (req, res) => {
+  res.send("Hello world");
+})
+
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
 })
